@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RA.RO atelier — Maquetes arquitetônicas de alta precisão</title>
+<meta name="description" content="Atelier de maquetes arquitetônicas de alta precisão. Transformamos projetos em objetos físicos com impressão 3D — milímetro a milímetro, camada a camada.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="RA.RO atelier — Maquetes arquitetônicas de alta precisão">
+<meta property="og:description" content="Transformamos projetos em objetos físicos com impressão 3D — milímetro a milímetro, camada a camada.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/web/rotonda-hand.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="RA.RO atelier"><img src="assets/logo raro atelier.png" alt="RA.RO atelier"></a>
+  <nav class="nav-links">
+    <a href="#portfolio">Portfólio</a>
+    <a href="#processo">Processo</a>
+    <a href="#atelier">Atelier</a>
+    <a href="#faq">Dúvidas</a>
+  </nav>
+  <div class="nav-cta">
+    <!-- TODO: trocar #quadros pela URL da loja quando lançar -->
+    <a href="#quadros" class="btn">Loja</a>
+    <a href="#contato" class="btn solid">Solicitar orçamento</a>
+    <button class="btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mmenu" id="mmenu">
+  <nav class="mmenu-links">
+    <a href="#portfolio">Portfólio</a>
+    <a href="#quadros">Quadros · loja</a>
+    <a href="#processo">Processo</a>
+    <a href="#atelier">Atelier</a>
+    <a href="#faq">Dúvidas</a>
+  </nav>
+  <div class="mmenu-ctas">
+    <a href="#contato" class="btn solid">Solicitar orçamento</a>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <img src="assets/web/rotonda-hand.jpg" alt="Maquete arquitetônica branca de alta precisão na palma da mão" fetchpriority="high">
+  </div>
+  <div class="hero-vignette"></div>
+  <div class="hero-copy">
+    <div class="hero-top">
+      <span class="eyebrow no-rule"><span class="idx">RA.RO</span>&nbsp; atelier · maquetes de alta precisão</span>
+      <h1 class="split" data-split>A arquitetura na <em class="terra">palma</em> da mão.</h1>
+    </div>
+    <div class="hero-bottom reveal d2">
+      <p class="hero-sub">Maquetes arquitetônicas impressas em 3D — traduzimos o seu projeto em um objeto físico, preciso ao milímetro.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn solid">Solicitar orçamento</a>
+        <a href="#portfolio" class="btn ghost">Ver portfólio <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" style="position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:4;flex-direction:column">
+    <span class="mono" style="writing-mode:vertical-rl;letter-spacing:.3em">scroll</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- ===================== MANIFESTO ===================== -->
+<section class="section manifesto wrap">
+  <div class="manifesto-grid">
+    <p class="lead split" data-split>Transformamos <span class="dim">desenho em</span> matéria — cada maquete é uma tradução física do projeto.</p>
+    <div class="manifesto-note reveal d2">
+      <p class="body">Trabalhamos na fronteira entre arquitetura, design e fabricação digital. Da planta ao objeto, a peça nasce camada por camada, fiel a cada cota do seu desenho.</p>
+      <p class="mono" style="margin-top:22px">PLA premium · resina · escala sob medida</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIFFERENTIATORS ===================== -->
+<section class="section wrap" id="diferenciais">
+  <div class="shead">
+    <div>
+      <span class="eyebrow reveal"><span class="idx">01</span> Por que 3D</span>
+      <h2 class="reveal d1" style="margin-top:24px">Precisão que o método tradicional não alcança.</h2>
+    </div>
+    <p class="body reveal d2">A impressão 3D libera geometrias, repetibilidade e detalhe impossíveis de obter à mão — sem abrir mão do acabamento de galeria.</p>
+  </div>
+
+  <div class="diffs">
+    <div class="diff reveal">
+      <span class="num">01</span>
+      <div><h3>Milimétrico</h3><p>Tolerâncias finas e fidelidade absoluta a cada cota do projeto original.</p></div>
+    </div>
+    <div class="diff reveal d1">
+      <span class="num">02</span>
+      <div><h3>Geometrias livres</h3><p>Cúpulas, colunatas e detalhes complexos reproduzidos sem simplificação.</p></div>
+    </div>
+    <div class="diff reveal d2">
+      <span class="num">03</span>
+      <div><h3>Repetível</h3><p>Séries idênticas para incorporadoras, brindes corporativos e prototipagem.</p></div>
+    </div>
+    <div class="diff reveal d3">
+      <span class="num">04</span>
+      <div><h3>Acabamento premium</h3><p>Tratamento de superfície e montagem manual peça a peça, prontas para exibição.</p></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat reveal"><div class="v">0,1<span class="u">mm</span></div><div class="k mono">tolerância de camada</div></div>
+    <div class="stat reveal d1"><div class="v">1:50<span class="u">→ 1:500</span></div><div class="k mono">escalas sob medida</div></div>
+    <div class="stat reveal d2"><div class="v">∞<span class="u">geo</span></div><div class="k mono">complexidade sem limite</div></div>
+  </div>
+
+  <div class="sec-cta reveal">
+    <a href="#contato" class="btn solid">Solicitar orçamento</a>
+    <span class="mono">resposta rápida · sem compromisso</span>
+  </div>
+</section>
+
+<!-- ===================== GROW IMAGE ===================== -->
+<section class="grow" id="grow">
+  <div class="grow-sticky">
+    <div class="grow-frame" id="growFrame">
+      <img src="assets/web/rotonda-2.jpg" alt="Detalhe do pórtico e da cúpula da maquete Rotonda impressa em 3D" id="growImg" loading="lazy" decoding="async">
+    </div>
+    <div class="grow-cap" id="growCap">
+      <span class="eyebrow no-rule" style="color:var(--bone)">projeto rotonda · detalhe</span>
+      <p class="lead" style="margin-top:14px">Colunatas, frontões e cúpula — reproduzidos camada a camada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PORTFOLIO ===================== -->
+<section class="section tint" id="portfolio">
+  <div class="wrap">
+    <div class="shead">
+      <div>
+        <span class="eyebrow reveal"><span class="idx">02</span> Portfólio</span>
+        <h2 class="reveal d1" style="margin-top:24px">Projetos que viraram <em>objeto</em>.</h2>
+      </div>
+      <p class="body reveal d2">Uma seleção de peças do atelier. Novas obras entram aqui a cada projeto entregue.</p>
+    </div>
+
+    <!-- destaque: Rotonda -->
+    <article class="folio-feature reveal">
+      <img src="assets/web/rotonda-5.jpg" alt="Maquete da villa Rotonda impressa em 3D, fachada completa" loading="lazy" decoding="async">
+      <div class="scrim"></div>
+      <div class="meta">
+        <span class="mono" style="color:var(--bone)">001 · villa neoclássica</span>
+        <h3>Rotonda</h3>
+        <p class="fdesc">Cúpula, colunatas e escadarias reproduzidas camada a camada — acabamento manual, pronta para exibição.</p>
+      </div>
+    </article>
+
+    <div class="folio-gallery">
+      <figure class="gcell reveal"><img src="assets/web/rotonda-1.jpg" alt="Maquete Rotonda em perspectiva" loading="lazy" decoding="async"><figcaption class="tag mono">perspectiva</figcaption></figure>
+      <figure class="gcell reveal d1"><img src="assets/web/rotonda-3.jpg" alt="Fachada frontal da maquete Rotonda" loading="lazy" decoding="async"><figcaption class="tag mono">pórtico</figcaption></figure>
+      <figure class="gcell reveal d2"><img src="assets/web/rotonda-7.jpg" alt="Detalhe da cúpula e telhados da maquete Rotonda" loading="lazy" decoding="async"><figcaption class="tag mono">cúpula</figcaption></figure>
+      <figure class="gcell reveal d3"><img src="assets/web/rotonda-8.jpg" alt="Vista superior da maquete Rotonda" loading="lazy" decoding="async"><figcaption class="tag mono">vista zenital</figcaption></figure>
+    </div>
+
+    <!-- demais projetos -->
+    <div class="folio-projects">
+      <article class="fproj reveal">
+        <div class="main"><img src="assets/web/projeto2-1.jpg" alt="Maquete do projeto 002 — dois volumes ligados por passarela" loading="lazy" decoding="async"></div>
+        <div class="duo">
+          <div><img src="assets/web/projeto2-2.jpg" alt="Maquete do projeto 002 — fachada lateral" loading="lazy" decoding="async"></div>
+          <div><img src="assets/web/projeto2-3.jpg" alt="Maquete do projeto 002 — vista superior da implantação" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="cap"><span class="t">Projeto 002</span><span class="mono">maquete institucional</span></div>
+      </article>
+      <article class="fproj reveal d1">
+        <div class="main"><img src="assets/web/projeto3-1.jpg" alt="Maquete do projeto 003 — pavilhões sobre plano urbano" loading="lazy" decoding="async"></div>
+        <div class="duo">
+          <div><img src="assets/web/projeto3-2.jpg" alt="Maquete do projeto 003 — vista superior do plano" loading="lazy" decoding="async"></div>
+          <div><img src="assets/web/projeto3-3.jpg" alt="Maquete do projeto 003 — detalhe dos pavilhões" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="cap"><span class="t">Projeto 003</span><span class="mono">maquete urbanística</span></div>
+      </article>
+    </div>
+
+    <!-- quadros -->
+    <div class="quadros" id="quadros">
+      <div class="shead">
+        <div>
+          <span class="eyebrow reveal"><span class="idx">+</span> Coleção</span>
+          <h3 class="qtitle reveal d1">Arquitetura para a <em>parede</em>.</h3>
+        </div>
+        <p class="body reveal d2">Quadros com relevo impresso em 3D — ícones modernistas e mapas de cidades, emoldurados peça a peça.</p>
+      </div>
+      <div class="qstrip" id="qstrip">
+        <figure class="qitem"><img src="assets/web/quadro-savoye.jpg" alt="Quadro com maquete da Villa Savoye sobre fundo vermelho" loading="lazy" decoding="async"></figure>
+        <figure class="qitem"><img src="assets/web/quadro-cristo.jpg" alt="Quadro com Cristo Redentor em relevo sobre fundo amarelo" loading="lazy" decoding="async"></figure>
+        <figure class="qitem"><img src="assets/web/quadro-masp.jpg" alt="Quadro com o MASP em relevo sobre fundo azul" loading="lazy" decoding="async"></figure>
+        <figure class="qitem"><img src="assets/web/quadro-duo.jpg" alt="Par de quadros da Villa Savoye em vermelho e azul" loading="lazy" decoding="async"></figure>
+        <figure class="qitem"><img src="assets/web/quadro-rio.jpg" alt="Quadro com mapa em relevo do Rio de Janeiro" loading="lazy" decoding="async"></figure>
+        <figure class="qitem"><img src="assets/web/quadro-maos.jpg" alt="Quadro com mão em relevo sobre bandeiras latino-americanas" loading="lazy" decoding="async"></figure>
+        <figure class="qitem"><img src="assets/web/quadro-fachada.jpg" alt="Quadro com fachada modernista em relevo sobre fundo azul" loading="lazy" decoding="async"></figure>
+      </div>
+      <p class="mono qhint">arraste para ver a coleção →</p>
+    </div>
+
+    <div class="folio-ctas reveal">
+      <a href="#contato" class="btn solid">Solicitar orçamento</a>
+      <!-- TODO: trocar # pela URL da loja quando lançar -->
+      <a href="#" class="btn">Conhecer a loja <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="section wrap" id="processo">
+  <div class="shead">
+    <div>
+      <span class="eyebrow reveal"><span class="idx">03</span> Processo</span>
+      <h2 class="reveal d1" style="margin-top:24px">Do arquivo à <em>peça pronta</em>.</h2>
+    </div>
+    <p class="body reveal d2">Um fluxo curto e transparente. Você acompanha cada etapa até a entrega.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step reveal">
+      <span class="n">01</span>
+      <h3>Briefing &amp; arquivo</h3>
+      <div class="desc">
+        <p>Recebemos seu projeto e definimos escala, materiais e nível de detalhe. Aceitamos os formatos mais comuns de arquitetura e 3D.</p>
+        <div class="formats"><span>DWG</span><span>SKP</span><span>RVT</span><span>STL</span><span>OBJ</span><span>3DM</span></div>
+      </div>
+    </div>
+    <div class="step reveal">
+      <span class="n">02</span>
+      <h3>Modelagem &amp; preparação</h3>
+      <div class="desc"><p>Tratamos a geometria, fechamos sólidos e otimizamos cada elemento para a impressão — preservando a intenção do desenho.</p></div>
+    </div>
+    <div class="step reveal">
+      <span class="n">03</span>
+      <h3>Impressão 3D</h3>
+      <div class="desc"><p>Fabricação de alta precisão, camada por camada. Calibração dedicada para detalhes finos como colunas, balaústres e relevos.</p></div>
+    </div>
+    <div class="step reveal">
+      <span class="n">04</span>
+      <h3>Acabamento &amp; montagem</h3>
+      <div class="desc"><p>Lixamento, tratamento de superfície e montagem manual. A peça ganha a textura e o caimento de uma maquete de exposição.</p></div>
+    </div>
+    <div class="step reveal">
+      <span class="n">05</span>
+      <h3>Entrega</h3>
+      <div class="desc"><p>Embalagem protetiva e envio. Sua maquete chega pronta para a mesa do cliente, a vitrine ou a banca de apresentação.</p></div>
+    </div>
+  </div>
+
+  <div class="steps-cta reveal">
+    <p class="lead">Tudo começa com um orçamento — leva dois minutos.</p>
+    <div class="sec-cta-row">
+      <a href="#contato" class="btn solid">Solicitar orçamento</a>
+      <span class="mono">resposta rápida · sem compromisso</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section tint" id="atelier">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow reveal"><span class="idx">04</span> O atelier</span>
+      <p class="lead reveal d1" style="margin:26px 0 26px">Um atelier obcecado por detalhe.</p>
+      <p class="body reveal d2">O RA.RO atelier nasce do encontro entre arquitetura e fabricação digital. Cada maquete é tratada como uma peça autoral — pensada na escala, no material e na luz que vai revelar seus detalhes. Não fazemos volumes genéricos; reproduzimos projetos com o respeito de quem entende de arquitetura.</p>
+      <p class="body reveal d3" style="margin-top:20px">Atendemos arquitetos, designers, incorporadoras e clientes que querem um objeto à altura do projeto.</p>
+      <div class="about-ctas reveal d3">
+        <a href="#contato" class="btn solid">Solicitar orçamento</a>
+        <a href="#portfolio" class="btn ghost">Ver portfólio <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <figure class="about-photo reveal d2">
+      <img src="assets/web/rotonda-6.jpg" alt="Cúpula da maquete Rotonda emergindo do fundo preto" loading="lazy" decoding="async">
+      <figcaption class="mono">rotonda · cúpula em escala</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section" id="depoimentos">
+  <div class="wrap shead">
+    <div>
+      <span class="eyebrow reveal"><span class="idx">05</span> Depoimentos</span>
+      <h2 class="reveal d1" style="margin-top:24px">Quem já tem a peça na mão.</h2>
+    </div>
+  </div>
+  <div class="quotes">
+    <figure class="quote reveal">
+      <div class="stars" aria-label="5 estrelas">★★★★★</div>
+      <blockquote>“A maquete superou a apresentação digital. O cliente fechou o projeto com a peça na mão — o detalhe das colunas impressiona de perto.”</blockquote>
+      <figcaption class="by"><span class="av">A</span><div><div class="nm">Arquiteto parceiro</div><div class="ro">Escritório de arquitetura</div></div></figcaption>
+    </figure>
+    <figure class="quote reveal d1">
+      <div class="stars" aria-label="5 estrelas">★★★★★</div>
+      <blockquote>“Precisão e acabamento de outro nível. Viraram nosso fornecedor fixo de modelos físicos para lançamentos.”</blockquote>
+      <figcaption class="by"><span class="av">I</span><div><div class="nm">Incorporadora</div><div class="ro">Marketing de lançamentos</div></div></figcaption>
+    </figure>
+  </div>
+  <div class="wrap">
+    <div class="proof">
+      <div class="proof-item reveal"><div class="t">Sem compromisso</div><div class="s mono">orçamento e resposta rápidos</div></div>
+      <div class="proof-item reveal d1"><div class="t">Acompanhamento total</div><div class="s mono">você vê cada etapa da produção</div></div>
+      <div class="proof-item reveal d2"><div class="t">Todo o Brasil</div><div class="s mono">envio com embalagem protetiva</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section wrap" id="faq">
+  <div class="shead">
+    <div>
+      <span class="eyebrow reveal"><span class="idx">06</span> Dúvidas</span>
+      <h2 class="reveal d1" style="margin-top:24px">Perguntas frequentes.</h2>
+    </div>
+  </div>
+  <div class="faq" id="faqList">
+    <div class="fitem">
+      <button class="fq">Quais arquivos vocês aceitam? <span class="pm"></span></button>
+      <div class="fa"><div class="fa-inner">Trabalhamos com os formatos mais comuns de arquitetura e modelagem 3D — DWG, SKP, RVT, STL, OBJ, 3DM e similares. Se você só tem plantas 2D ou referências, conversamos sobre a modelagem.</div></div>
+    </div>
+    <div class="fitem">
+      <button class="fq">Em quais escalas vocês produzem? <span class="pm"></span></button>
+      <div class="fa"><div class="fa-inner">De 1:50 a 1:500, sob medida conforme o tamanho da peça e o nível de detalhe desejado. Ajudamos você a escolher a escala ideal para o uso — apresentação, vitrine ou coleção.</div></div>
+    </div>
+    <div class="fitem">
+      <button class="fq">Qual o prazo de produção? <span class="pm"></span></button>
+      <div class="fa"><div class="fa-inner">Depende da complexidade e da escala. Protótipos simples saem em poucos dias; peças com alto nível de detalhe levam mais tempo. Definimos o prazo no orçamento, antes de iniciar.</div></div>
+    </div>
+    <div class="fitem">
+      <button class="fq">Vocês fazem séries e brindes corporativos? <span class="pm"></span></button>
+      <div class="fa"><div class="fa-inner">Sim. A impressão 3D garante repetibilidade, ideal para séries idênticas — lançamentos imobiliários, brindes institucionais e prototipagem de produto.</div></div>
+    </div>
+    <div class="fitem">
+      <button class="fq">Enviam para todo o Brasil? <span class="pm"></span></button>
+      <div class="fa"><div class="fa-inner">Sim. Embalamos com proteção dedicada e enviamos para todo o país. Combinamos a melhor forma de envio conforme o tamanho e a fragilidade da peça.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section contact wrap" id="contato">
+  <div class="contact-grid">
+    <div>
+      <span class="eyebrow reveal"><span class="idx">07</span> Orçamento</span>
+      <h2 class="reveal d1" style="margin-top:24px">Vamos transformar seu projeto em objeto.</h2>
+      <p class="lead reveal d2">Conte sobre a peça. Respondemos com escala, prazo e valor.</p>
+      <div class="contact-info reveal d3">
+        <div class="cinfo"><span class="mono">Instagram</span><a href="https://www.instagram.com/ra.ro.atelier/" target="_blank" rel="noopener">@ra.ro.atelier</a></div>
+        <div class="cinfo"><span class="mono">E-mail</span><a href="mailto:contato@raroatelier.com">contato@raroatelier.com</a></div>
+        <div class="cinfo"><span class="mono">WhatsApp</span><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">Fale agora →</a></div>
+      </div>
+    </div>
+
+    <div class="reveal d2">
+      <form class="form" id="quoteForm" novalidate>
+        <div class="frow">
+          <div class="field"><label>Nome</label><input type="text" name="nome" placeholder="Seu nome" required></div>
+          <div class="field"><label>E-mail</label><input type="email" name="email" placeholder="voce@email.com" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>WhatsApp</label><input type="tel" name="fone" placeholder="(00) 00000-0000"></div>
+          <div class="field"><label>Tipo de projeto</label>
+            <select name="tipo">
+              <option>Maquete arquitetônica</option>
+              <option>Protótipo de produto / design</option>
+              <option>Série / brinde corporativo</option>
+              <option>Quadro de parede</option>
+              <option>Outro</option>
+            </select>
+            <span class="caret"></span>
+          </div>
+        </div>
+        <div class="field"><label>Conte sobre a peça</label><textarea name="msg" rows="2" placeholder="Escala, prazo, referências, formato do arquivo..."></textarea></div>
+        <div class="form-foot">
+          <p class="note">Sem compromisso · respondemos rápido pelo canal que preferir</p>
+          <button type="submit" class="btn solid">Solicitar orçamento</button>
+        </div>
+        <div class="sent-msg" id="sentMsg"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--terra)"></span> Recebido — em breve entramos em contato.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer wrap">
+  <div class="footer-top">
+    <div>
+      <a class="logo" href="#top"><img src="assets/logo raro atelier.png" alt="RA.RO atelier"></a>
+      <p class="body" style="max-width:32ch">Maquetes arquitetônicas de alta precisão. Do desenho ao objeto.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="fcol">
+        <h4>Navegar</h4>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#quadros">Quadros</a>
+        <a href="#processo">Processo</a>
+        <a href="#atelier">Atelier</a>
+        <a href="#faq">Dúvidas</a>
+      </div>
+      <div class="fcol">
+        <h4>Contato</h4>
+        <a href="https://www.instagram.com/ra.ro.atelier/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:contato@raroatelier.com">E-mail</a>
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#contato">Orçamento</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span class="mono">© <span id="year">2026</span> RA.RO atelier — todos os direitos reservados</span>
+    <span class="mono">Maquetes · impressão 3D · alta precisão</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="motion.js"></script>
+</body>
+</html>
