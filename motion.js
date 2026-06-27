@@ -232,24 +232,58 @@
     });
   }
 
-  /* ---------- quadros: arrastar para rolar (desktop) ---------- */
-  var strip = document.getElementById("qstrip");
-  if (strip && window.PointerEvent) {
-    var dragOn = false, dragX = 0, dragLeft = 0;
-    strip.addEventListener("pointerdown", function (e) {
-      if (e.pointerType !== "mouse") return; // touch usa o scroll nativo
-      dragOn = true; dragX = e.clientX; dragLeft = strip.scrollLeft;
-      strip.classList.add("dragging");
-      strip.setPointerCapture(e.pointerId);
-    });
-    strip.addEventListener("pointermove", function (e) {
-      if (!dragOn) return;
-      strip.scrollLeft = dragLeft - (e.clientX - dragX);
-    });
-    ["pointerup", "pointercancel"].forEach(function (t) {
-      strip.addEventListener(t, function () {
-        dragOn = false; strip.classList.remove("dragging");
+  /* ---------- carrosséis: setas (desktop) + arrastar para rolar ---------- */
+  document.querySelectorAll("[data-carousel]").forEach(function (car) {
+    var track = car.querySelector(".car-track");
+    if (!track) return;
+    var prev = car.querySelector(".car-arrow.prev");
+    var next = car.querySelector(".car-arrow.next");
+
+    function step() {
+      var slide = track.querySelector(".car-slide, .qitem");
+      var cs = getComputedStyle(track);
+      var gap = parseFloat(cs.columnGap || cs.gap) || 16;
+      var w = slide ? slide.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+      var perView = Math.max(1, Math.floor(track.clientWidth / w));
+      return w * perView;
+    }
+    var tick = false;
+    function update() {
+      var maxScroll = track.scrollWidth - track.clientWidth - 2;
+      if (prev) prev.disabled = track.scrollLeft <= 0;
+      if (next) next.disabled = track.scrollLeft >= maxScroll;
+    }
+    if (prev) prev.addEventListener("click", function () { track.scrollBy({ left: -step(), behavior: "smooth" }); });
+    if (next) next.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });
+    track.addEventListener("scroll", function () {
+      if (!tick) { requestAnimationFrame(function () { update(); tick = false; }); tick = true; }
+    }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+
+    if (window.PointerEvent) {
+      var dragOn = false, dragX = 0, dragLeft = 0, moved = false;
+      track.addEventListener("pointerdown", function (e) {
+        if (e.pointerType !== "mouse") return; // touch usa o scroll nativo
+        dragOn = true; moved = false; dragX = e.clientX; dragLeft = track.scrollLeft;
+        track.classList.add("dragging");
+        track.setPointerCapture(e.pointerId);
       });
-    });
-  }
+      track.addEventListener("pointermove", function (e) {
+        if (!dragOn) return;
+        var dx = e.clientX - dragX;
+        if (Math.abs(dx) > 3) moved = true;
+        track.scrollLeft = dragLeft - dx;
+      });
+      ["pointerup", "pointercancel"].forEach(function (t) {
+        track.addEventListener(t, function () {
+          dragOn = false; track.classList.remove("dragging");
+        });
+      });
+      // após arrastar, não deixa o clique acionar nada
+      track.addEventListener("click", function (e) {
+        if (moved) { e.preventDefault(); e.stopPropagation(); }
+      }, true);
+    }
+  });
 })();

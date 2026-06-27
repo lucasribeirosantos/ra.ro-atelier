@@ -1,0 +1,11 @@
+# Pasta de imagens-fonte (PNGs originais). As versões otimizadas
+# já estão em assets/web/. Mantida apenas localmente.
+projects-img/
+
+# Outras pastas de trabalho não usadas pelo site publicado
+uploads/
+screenshots/
+
+# Sistema
+Thumbs.db
+.DS_Store

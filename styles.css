@@ -136,6 +136,9 @@ em.terra{font-style:italic}
 @media(max-width:880px){
   .nav-links,.nav-cta .btn:not(.nav-toggle){display:none}
   .nav-toggle{display:inline-flex}
+  /* logo maior no mobile */
+  .nav .logo img{height:60px}
+  .nav.scrolled .logo img{height:50px}
 }
 
 /* ---------- mobile menu ---------- */
@@ -164,12 +167,15 @@ body.menu-open{overflow:hidden}
 .hero{position:relative;height:100svh;min-height:680px;overflow:hidden;display:flex}
 .hero-media{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;will-change:transform}
 .hero-media img{
-  height:78%;width:auto;max-width:none;object-fit:contain;object-position:bottom center;
+  height:80%;width:auto;max-width:none;object-fit:contain;object-position:bottom center;
   filter:contrast(1.04) brightness(1.02);
+  /* dissolve o punho/antebraço na base para entrar no fluxo preto do site */
+  -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 98%);
+  mask-image:linear-gradient(to bottom,#000 80%,transparent 98%);
 }
 /* em telas estreitas a imagem sobe para liberar a área do texto */
 @media(max-width:720px){
-  .hero-media img{height:64%;margin-bottom:20vh}
+  .hero-media img{height:66%;margin-bottom:18vh}
 }
 .hero-vignette{position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 90% at 50% 64%,transparent 38%,rgba(0,0,0,.5) 100%),
@@ -278,29 +284,58 @@ body.menu-open{overflow:hidden}
   .gcell{flex:0 0 70%;scroll-snap-align:center}
 }
 
-/* demais projetos */
-.folio-projects{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.5vw,56px);margin-top:clamp(44px,6vw,80px)}
-.fproj .main{aspect-ratio:16/11;overflow:hidden;background:var(--ink);border:1px solid var(--line-soft)}
-.fproj .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,22px);margin-top:clamp(12px,1.4vw,22px)}
-.fproj .duo div{aspect-ratio:4/3;overflow:hidden;background:var(--ink);border:1px solid var(--line-soft)}
-.fproj img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);will-change:transform}
-.fproj .main:hover img,.fproj .duo div:hover img{transform:scale(1.05)}
-.fproj .cap{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-top:16px}
-.fproj .cap .t{font-family:var(--f-display);font-size:clamp(1.3rem,1.8vw,1.7rem);color:var(--bone)}
-@media(max-width:780px){.folio-projects{grid-template-columns:1fr;gap:46px}}
+/* demais projetos — carrosséis */
+.proj-list{display:flex;flex-direction:column;gap:clamp(48px,6vw,88px);margin-top:clamp(44px,6vw,80px)}
+.proj-head{display:grid;grid-template-columns:1fr .82fr;gap:clamp(14px,3vw,48px);align-items:end;margin-bottom:clamp(18px,2.2vw,30px)}
+.proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.02;margin-top:8px}
+.proj-head .tagmini{font-family:var(--f-mono);font-size:.34em;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);
+  border:1px solid var(--terra-soft);border-radius:999px;padding:.55em 1em;vertical-align:middle;margin-left:.7em;white-space:nowrap}
+.proj-head .pdesc{color:var(--fog);font-size:.98rem;line-height:1.62;max-width:46ch}
+.proj-head .hint-color{color:var(--fog-dim);font-style:italic}
+@media(max-width:780px){.proj-head{grid-template-columns:1fr;gap:10px;align-items:start}}
+
+/* carrossel genérico */
+.carousel{position:relative}
+.car-track{display:flex;gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;cursor:grab;padding-bottom:4px}
+.car-track::-webkit-scrollbar{display:none}
+.car-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+.car-slide{flex:0 0 clamp(280px,31%,440px);scroll-snap-align:start;margin:0;
+  aspect-ratio:4/5;overflow:hidden;background:var(--ink);border:1px solid var(--line-soft)}
+.car-slide img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .7s var(--ease);will-change:transform}
+.car-slide:hover img{transform:scale(1.05)}
+.car-track.dragging .car-slide img{transform:none}
+@media(max-width:980px){.car-slide{flex-basis:46%}}
+@media(max-width:680px){.car-slide{flex-basis:80%}}
+
+/* projeto 002 — preto e branco que revela a cor no hover (apenas mouse) */
+@media(hover:hover) and (pointer:fine){
+  .proj-bw .car-slide img{filter:grayscale(1) contrast(1.05)}
+  .proj-bw .car-slide:hover img{filter:grayscale(0) contrast(1)}
+}
+
+/* setas — somente em telas com mouse */
+.car-arrow{position:absolute;top:calc(50% - 2px);transform:translateY(-50%);z-index:6;
+  width:46px;height:46px;border-radius:50%;display:none;align-items:center;justify-content:center;
+  background:rgba(8,8,10,.66);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--line);color:var(--bone);font-size:1.6rem;padding-bottom:3px;
+  transition:background .4s var(--ease),border-color .4s var(--ease),opacity .35s var(--ease)}
+.car-arrow.prev{left:10px}
+.car-arrow.next{right:10px}
+.car-arrow:hover{background:var(--terra);border-color:var(--terra)}
+.car-arrow[disabled]{opacity:0;pointer-events:none}
+@media(hover:hover) and (pointer:fine){.car-arrow{display:inline-flex}}
 
 /* quadros — coleção de parede */
 .quadros{margin-top:clamp(50px,7vw,90px);border-top:1px solid var(--line);padding-top:clamp(40px,5vw,64px)}
 .quadros .qtitle{font-family:var(--f-display);font-weight:300;font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:1.02;letter-spacing:-.01em;margin-top:22px}
 .quadros .qtitle em{font-style:italic}
-.qstrip{display:flex;gap:clamp(12px,1.6vw,22px);overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;cursor:grab;
-  margin-inline:calc(var(--gutter)*-1);padding-inline:var(--gutter);padding-bottom:10px}
-.qstrip::-webkit-scrollbar{display:none}
-.qstrip.dragging{cursor:grabbing;scroll-snap-type:none}
+.quadros-car{margin-top:8px}
+.quadros-car .car-track{scroll-snap-type:x proximity}
 .qitem{flex:0 0 auto;height:clamp(250px,36vh,400px);overflow:hidden;margin:0;scroll-snap-align:start;background:var(--ink);border:1px solid var(--line-soft)}
 .qitem img{height:100%;width:auto;display:block;transition:transform 1.2s var(--ease)}
 .qitem:hover img{transform:scale(1.04)}
-.qstrip.dragging .qitem img{transform:none}
+.car-track.dragging .qitem img{transform:none}
 .qhint{margin-top:14px;color:var(--fog-dim)}
 
 .folio-ctas{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:clamp(46px,6vw,72px)}
