@@ -16,9 +16,9 @@
   --terra:#e0483c;
   --terra-soft:rgba(224,72,60,.16);
 
-  --f-display:"Cormorant", Georgia, serif;
-  --f-sans:"Manrope", system-ui, sans-serif;
-  --f-mono:"JetBrains Mono", ui-monospace, monospace;
+  --f-display:"Raleway", system-ui, sans-serif;
+  --f-sans:"Raleway", system-ui, sans-serif;
+  --f-mono:"Raleway", system-ui, sans-serif;
 
   --gutter:clamp(22px, 5vw, 96px);
   --maxw:1360px;
@@ -88,6 +88,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 }
 .body{color:var(--fog);font-size:clamp(1rem,1.15vw,1.12rem);line-height:1.7;max-width:46ch;text-wrap:pretty}
 .mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fog-dim)}
+.terra{color:var(--terra)}
+em.terra{font-style:italic}
 
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
 .section{padding-block:var(--sec);position:relative}
