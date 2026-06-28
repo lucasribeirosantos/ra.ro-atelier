@@ -284,19 +284,17 @@ body.menu-open{overflow:hidden}
   .gcell{flex:0 0 70%;scroll-snap-align:center}
 }
 
-/* demais projetos — cards pequenos centralizados (destaque + carrossel menor) */
-.proj-list{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(24px,2.6vw,42px);margin-top:clamp(40px,5vw,72px)}
-.proj{flex:0 1 clamp(240px,30%,300px)}
-@media(max-width:560px){.proj{flex-basis:100%}}
-.proj-head{display:flex;align-items:baseline;gap:12px;margin-bottom:clamp(10px,1.2vw,16px)}
-.proj-head .mono{color:var(--terra)}
-.proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.15rem,1.5vw,1.5rem);line-height:1;
+/* demais projetos — dois cards equilibrados (destaque + carrossel menor) */
+.proj-list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3.6vw,60px);margin-top:clamp(40px,5vw,76px);align-items:start}
+@media(max-width:760px){.proj-list{grid-template-columns:1fr;gap:46px}}
+.proj-head{display:flex;align-items:baseline;gap:.7em;margin-bottom:clamp(14px,1.6vw,22px);padding-bottom:clamp(12px,1.4vw,18px);border-bottom:1px solid var(--line-soft)}
+.proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1;
   display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap}
 .proj-head .tagmini{font-family:var(--f-mono);font-size:.4em;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);
   border:1px solid var(--terra-soft);border-radius:999px;padding:.5em 1em;white-space:nowrap}
 
 /* imagem de destaque (fundo do card 100% preto) */
-.proj-hero{aspect-ratio:4/3;background:var(--black);border:1px solid var(--line-soft);overflow:hidden;margin:0 0 clamp(10px,1.2vw,16px)}
+.proj-hero{aspect-ratio:4/3;background:var(--black);border:1px solid var(--line-soft);overflow:hidden;margin:0 0 clamp(12px,1.4vw,18px)}
 .proj-hero img{width:100%;height:100%;object-fit:contain;transition:transform 1.4s var(--ease)}
 .proj-hero:hover img{transform:scale(1.03)}
 
@@ -331,10 +329,8 @@ body.menu-open{overflow:hidden}
 .car-arrow:hover{background:var(--terra);border-color:var(--terra)}
 .car-arrow[disabled]{opacity:0;pointer-events:none}
 @media(hover:hover) and (pointer:fine){.car-arrow{display:inline-flex}}
-/* setas menores nos cards pequenos de projeto */
-.proj-car .car-arrow{width:34px;height:34px;font-size:1.15rem;padding-bottom:2px}
-.proj-car .car-arrow.prev{left:6px}
-.proj-car .car-arrow.next{right:6px}
+/* setas dos carrosséis de projeto */
+.proj-car .car-arrow{width:42px;height:42px;font-size:1.45rem}
 
 /* quadros — coleção de parede */
 .quadros{margin-top:clamp(50px,7vw,90px);border-top:1px solid var(--line);padding-top:clamp(40px,5vw,64px)}
