@@ -284,10 +284,10 @@ body.menu-open{overflow:hidden}
   .gcell{flex:0 0 70%;scroll-snap-align:center}
 }
 
-/* demais projetos — cards pequenos lado a lado (destaque + carrossel menor) */
-.proj-list{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(22px,2.4vw,38px) clamp(16px,1.8vw,28px);margin-top:clamp(40px,5vw,72px)}
-@media(max-width:1100px){.proj-list{grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,48px)}}
-@media(max-width:560px){.proj-list{grid-template-columns:1fr;gap:36px}}
+/* demais projetos — cards pequenos centralizados (destaque + carrossel menor) */
+.proj-list{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(24px,2.6vw,42px);margin-top:clamp(40px,5vw,72px)}
+.proj{flex:0 1 clamp(240px,30%,300px)}
+@media(max-width:560px){.proj{flex-basis:100%}}
 .proj-head{display:flex;align-items:baseline;gap:12px;margin-bottom:clamp(10px,1.2vw,16px)}
 .proj-head .mono{color:var(--terra)}
 .proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.15rem,1.5vw,1.5rem);line-height:1;
