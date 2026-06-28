@@ -284,8 +284,9 @@ body.menu-open{overflow:hidden}
   .gcell{flex:0 0 70%;scroll-snap-align:center}
 }
 
-/* demais projetos — imagem de destaque + carrossel menor */
-.proj-list{display:flex;flex-direction:column;gap:clamp(48px,6vw,92px);margin-top:clamp(44px,6vw,80px)}
+/* demais projetos — cards lado a lado (destaque + carrossel menor) */
+.proj-list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,4vw,64px) clamp(24px,3vw,48px);margin-top:clamp(44px,6vw,80px)}
+@media(max-width:780px){.proj-list{grid-template-columns:1fr;gap:46px}}
 .proj-head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(14px,1.8vw,22px)}
 .proj-head .mono{color:var(--terra)}
 .proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.5rem,2.8vw,2.3rem);line-height:1;
@@ -305,13 +306,12 @@ body.menu-open{overflow:hidden}
 .car-track::-webkit-scrollbar{display:none}
 .car-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
 /* slides menores do carrossel — fundo 100% preto */
-.car-slide{flex:0 0 clamp(150px,17%,210px);scroll-snap-align:start;margin:0;
+.car-slide{flex:0 0 clamp(110px,30%,190px);scroll-snap-align:start;margin:0;
   aspect-ratio:4/5;overflow:hidden;background:var(--black);border:1px solid var(--line-soft)}
 .car-slide img{width:100%;height:100%;object-fit:contain;transition:transform 1.2s var(--ease),filter .7s var(--ease);will-change:transform}
 .car-slide:hover img{transform:scale(1.04)}
 .car-track.dragging .car-slide img{transform:none}
-@media(max-width:980px){.car-slide{flex-basis:30%}}
-@media(max-width:680px){.car-slide{flex-basis:44%}}
+@media(max-width:680px){.car-slide{flex-basis:46%}}
 
 /* projeto 002 — preto e branco que revela a cor no hover (apenas mouse) */
 @media(hover:hover) and (pointer:fine){
