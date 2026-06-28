@@ -289,19 +289,23 @@ body.menu-open{overflow:hidden}
   .gcell{flex:0 0 70%;scroll-snap-align:center}
 }
 
-/* demais projetos — empilhados, imagem grande + 2 imagens grandes embaixo */
-.proj-list{display:flex;flex-direction:column;gap:clamp(50px,7vw,100px);margin-top:clamp(48px,6vw,84px)}
-@media(max-width:760px){.proj-list{gap:48px}}
-.proj-head{display:flex;align-items:baseline;gap:.7em;margin-bottom:clamp(14px,1.6vw,22px);padding-bottom:clamp(12px,1.4vw,18px);border-bottom:1px solid var(--line-soft)}
-.proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1;
+/* demais projetos — 003 e 004 lado a lado (destaque + 2 abaixo) */
+.proj-list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3.6vw,58px);margin-top:clamp(48px,6vw,84px);align-items:start}
+@media(max-width:760px){.proj-list{grid-template-columns:1fr;gap:48px}}
+.proj-head{display:flex;align-items:baseline;gap:.7em;margin-bottom:clamp(12px,1.4vw,18px);padding-bottom:clamp(10px,1.2vw,16px);border-bottom:1px solid var(--line-soft)}
+.proj-head h3{font-family:var(--f-display);font-weight:500;font-size:clamp(1.4rem,2.2vw,2rem);line-height:1;
   display:flex;align-items:baseline;gap:.6em;flex-wrap:wrap}
 .proj-head .tagmini{font-family:var(--f-mono);font-size:.4em;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);
   border:1px solid var(--terra-soft);border-radius:999px;padding:.5em 1em;white-space:nowrap}
 
-/* imagem de destaque (fundo do card 100% preto) */
-.proj-hero{aspect-ratio:4/3;background:var(--black);border:1px solid var(--line-soft);overflow:hidden;margin:0 0 clamp(12px,1.4vw,18px)}
-.proj-hero img{width:100%;height:100%;object-fit:contain;transition:transform 1.4s var(--ease)}
+/* destaque + 2 abaixo — imagens no tamanho natural (sem faixas pretas, sem corte) */
+.proj-hero{overflow:hidden;border:1px solid var(--line-soft);margin:0 0 clamp(10px,1.2vw,16px);line-height:0}
+.proj-hero img{width:100%;height:auto;display:block;transition:transform 1.4s var(--ease)}
 .proj-hero:hover img{transform:scale(1.03)}
+.proj-duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,16px)}
+.dcell{overflow:hidden;border:1px solid var(--line-soft);margin:0;line-height:0}
+.dcell img{width:100%;height:auto;display:block;transition:transform 1.2s var(--ease),filter .7s var(--ease)}
+.dcell:hover img{transform:scale(1.04)}
 
 /* carrossel genérico */
 .carousel{position:relative}
@@ -317,10 +321,10 @@ body.menu-open{overflow:hidden}
 .car-track.dragging .car-slide img{transform:none}
 @media(max-width:680px){.car-slide{flex-basis:88%}}
 
-/* projeto 002 — preto e branco que revela a cor no hover (apenas mouse) */
+/* projeto institucional — preto e branco que revela a cor no hover (apenas mouse) */
 @media(hover:hover) and (pointer:fine){
-  .proj-bw .proj-hero img,.proj-bw .car-slide img{filter:grayscale(1) contrast(1.05)}
-  .proj-bw .proj-hero:hover img,.proj-bw .car-slide:hover img{filter:grayscale(0) contrast(1)}
+  .proj-bw .proj-hero img,.proj-bw .dcell img{filter:grayscale(1) contrast(1.05)}
+  .proj-bw .proj-hero:hover img,.proj-bw .dcell:hover img{filter:grayscale(0) contrast(1)}
 }
 
 /* setas — somente em telas com mouse */
