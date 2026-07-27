@@ -250,11 +250,11 @@ body.menu-open{overflow:hidden}
 .sec-cta{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:clamp(46px,6vw,72px);text-align:center}
 .sec-cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 
-/* ---------- grow image (sticky) ---------- */
-.grow{height:230vh;position:relative}
-.grow-sticky{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.grow-frame{position:relative;overflow:hidden;width:42vw;height:54vh;border:1px solid var(--line);will-change:width,height;border-radius:2px}
-.grow-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;will-change:transform}
+/* ---------- imagem em tela cheia (estática) ---------- */
+.grow{position:relative;height:100svh;overflow:hidden}
+.grow-sticky{position:relative;height:100%;overflow:hidden}
+.grow-frame{position:absolute;inset:0;overflow:hidden}
+.grow-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .grow-cap{position:absolute;z-index:4;left:var(--gutter);bottom:clamp(30px,5vh,56px);max-width:min(34ch,calc(100% - 2*var(--gutter)));opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease);
   background:rgba(5,5,6,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   padding:clamp(18px,2.4vw,28px) clamp(20px,2.6vw,32px);border-left:2px solid var(--terra);border-radius:2px}
@@ -269,17 +269,15 @@ body.menu-open{overflow:hidden}
 .folio-feature:hover img{transform:scale(1.05)}
 .folio-feature .meta{position:absolute;left:clamp(20px,3vw,46px);bottom:clamp(20px,3vw,40px);z-index:3;max-width:46ch}
 .folio-feature .meta h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1;margin-top:6px}
-.folio-feature .meta .fdesc{color:var(--fog);font-size:.95rem;line-height:1.6;margin-top:10px;max-width:52ch}
 .folio-feature .scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 36%,rgba(0,0,0,.78));z-index:2;pointer-events:none}
 @media(max-width:640px){
   .folio-feature{aspect-ratio:4/5}
-  .folio-feature .meta .fdesc{display:none}
 }
 /* feature com imagem em contain (peças sobre fundo claro) — ex.: Tempietto */
 .folio-feature.feat-contain{aspect-ratio:4/3;background:var(--black);margin-bottom:clamp(12px,1.4vw,18px)}
 .folio-feature.feat-contain img{object-fit:contain;object-position:center}
 .folio-feature.feat-contain .scrim{background:linear-gradient(180deg,transparent 22%,rgba(0,0,0,.5) 56%,rgba(0,0,0,.94))}
-@media(max-width:640px){.folio-feature.feat-contain{aspect-ratio:4/5}.folio-feature.feat-contain .meta .fdesc{display:block}}
+@media(max-width:640px){.folio-feature.feat-contain{aspect-ratio:4/5}}
 
 /* galeria rotonda */
 .folio-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,26px);margin-top:clamp(14px,1.6vw,26px)}

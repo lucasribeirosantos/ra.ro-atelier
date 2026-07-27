@@ -73,18 +73,13 @@
   /* ---------- elements for scroll-driven motion ---------- */
   var heroMedia = document.getElementById("heroMedia");
   var growSection = document.getElementById("grow");
-  var growFrame = document.getElementById("growFrame");
-  var growImg = document.getElementById("growImg");
   var growCap = document.getElementById("growCap");
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-  function lerp(a, b, t) { return a + (b - a) * t; }
 
   var vh = window.innerHeight;
-  var narrow = window.innerWidth < 720;
   window.addEventListener("resize", function () {
     vh = window.innerHeight;
-    narrow = window.innerWidth < 720;
   });
 
   function onScroll(scrollY) {
@@ -96,6 +91,13 @@
 
     checkReveals(vh);
 
+    // a imagem de tela cheia é estática; só a legenda entra, depois que a
+    // seção domina a viewport (vale também com reduced-motion)
+    if (growSection && growCap) {
+      var g = growSection.getBoundingClientRect();
+      growCap.classList.toggle("show", g.top <= vh * 0.35 && g.bottom >= vh * 0.65);
+    }
+
     if (reduce) return;
 
     // hero zoom + drift
@@ -103,23 +105,6 @@
       var hp = clamp(scrollY / vh, 0, 1);
       heroMedia.style.transform = "scale(" + (1 + hp * 0.16) + ") translateY(" + (hp * -3) + "%)";
       heroMedia.style.opacity = (1 - hp * 0.55).toFixed(3);
-    }
-
-    // grow-to-fullscreen
-    if (growSection && growFrame) {
-      var rect = growSection.getBoundingClientRect();
-      var total = rect.height - vh;
-      var prog = clamp((-rect.top) / (total || 1), 0, 1);
-      // ease
-      var e = prog < 0.5 ? 4 * prog * prog * prog : 1 - Math.pow(-2 * prog + 2, 3) / 2;
-      // em telas estreitas o quadro inicial precisa ser maior para ter presença
-      var w = lerp(narrow ? 86 : 42, 100, e);
-      var h = lerp(narrow ? 46 : 54, 100, e);
-      growFrame.style.width = w + "vw";
-      growFrame.style.height = h + "svh";
-      growFrame.style.borderColor = "rgba(244,241,234," + (0.12 * (1 - e)) + ")";
-      if (growImg) growImg.style.transform = "scale(" + lerp(1.18, 1.0, e) + ")";
-      if (growCap) growCap.classList.toggle("show", prog > 0.55);
     }
   }
 
@@ -195,7 +180,10 @@
     if (open) open.querySelector(".fa").style.height = open.querySelector(".fa-inner").offsetHeight + "px";
   });
 
-  /* ---------- form ---------- */
+  /* ---------- form → WhatsApp ----------
+     O envio não usa backend: monta uma mensagem com os dados preenchidos
+     e abre a conversa no WhatsApp do atelier já com o texto pronto. */
+  var WHATSAPP = "5519989006628";
   var form = document.getElementById("quoteForm");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -207,9 +195,30 @@
         if (!f.value.trim()) { f.style.borderBottomColor = "var(--terra)"; ok = false; }
       });
       if (!ok) return;
+
+      function val(name) {
+        var f = form.querySelector('[name="' + name + '"]');
+        return f ? f.value.trim() : "";
+      }
+      var linhas = [
+        "Olá! Gostaria de solicitar um orçamento.",
+        "",
+        "*Nome:* " + val("nome"),
+        "*E-mail:* " + val("email")
+      ];
+      if (val("fone")) linhas.push("*Contato:* " + val("fone"));
+      linhas.push("*Tipo de projeto:* " + val("tipo"));
+      if (val("msg")) linhas.push("*Sobre a peça:* " + val("msg"));
+
+      var url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(linhas.join("\n"));
+
       form.classList.add("sent");
       var msg = document.getElementById("sentMsg");
       if (msg) msg.classList.add("show");
+
+      // aberto dentro do gesto de submit para não cair no bloqueador de pop-up
+      var win = window.open(url, "_blank", "noopener");
+      if (!win) window.location.href = url;
     });
   }
 

@@ -6,6 +6,9 @@ projects-img/
 uploads/
 screenshots/
 
+# Configuração local do Claude Code (varia por máquina)
+.claude/settings.local.json
+
 # Sistema
 Thumbs.db
 .DS_Store
